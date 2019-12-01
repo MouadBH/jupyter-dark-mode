@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jupyter Dark Mode</title>
+    <style>
+      body{
+          width: 180px;
+          font-family: sans-serif;
+          text-align: center;
+          background-color: #383838;
+          color: #eeeeee;
+      }
+      img{
+          height: 50px;
+          width: 50px;
+      }
+      small{
+          font-size: 10pt;
+      }
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+      .switch input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #444;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+      input:checked + .slider {
+        background-color: #42a5f5;
+      }
+      input:focus + .slider {
+        box-shadow: 0 0 1px #42a5f5;
+      }
+      input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+      .slider.round {
+        border-radius: 34px;
+      }
+      .slider.round:before {
+        border-radius: 50%;
+      }
+      </style>
+</head>
+<body>
+    <img src="./images/icon128.png">
+    <br>
+    <br>
+    <label class="switch" id="box">
+        <input type="checkbox" id="toggle">
+        <span class="slider round"></span>
+    </label>
+    <small id="detect">Jupyter Notebook not detected :/</small>
+    <br>
+    <br>
+    <hr>
+    <small>Jupyter Dark Mode</small>
+    <br>
+    <script src="./script.js"></script>
+</body>
+</html>

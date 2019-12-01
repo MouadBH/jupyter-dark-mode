@@ -1,0 +1,39 @@
+{
+    "name": "Jupyter Dark Mode",
+    "version": "1.0",
+    "description": "Dark Mode For Jupyter Notebooks.",
+    "author": "MouadBH",
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "offline_enabled": true,
+    "permissions": [
+        "storage",
+        "tabs",
+        "http://*/notebooks/*", 
+        "https://hub.gke.mybinder.org/*"
+    ],
+    "background":{
+        "scripts": ["background.js"]
+      },
+    "browser_action": {
+        "default_icon": {
+            "16": "images/icon16.png",
+            "48": "images/icon48.png",
+            "128": "images/icon128.png"
+        },
+        "default_title": "Jupyter Dark Mode",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+          "matches": ["http://*/notebooks/*", "https://hub.gke.mybinder.org/*"],
+          "css": [
+                "./defaults/custom.css"
+            ]
+        }
+    ],
+    "manifest_version": 2
+  }
