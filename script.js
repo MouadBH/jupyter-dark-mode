@@ -17,27 +17,24 @@ chrome.tabs.query({active: true, url:["http://*/notebooks/*", "https://hub.gke.m
 
         function changeColor(){
             if(btn.checked){
-                chrome.tabs.insertCSS({
-                    file: './layout/cells.less',
-                    file: './layout/codemirror.less',
-                    file: './layout/completer.less',
-                    file: './layout/extras.less',
-                    file: './layout/notebook.less',
-                    file: './layout/vim.less',
-                    file: './styles/compiled/solarizedl.css'
+                browser.tabs.insertCSS({
+                    file: './styles/dark.css'
                 })
-                chrome.storage.local.set({ [id]: true})
+                chrome.storage.local.set({id: true})
             }else{
-                chrome.tabs.removeCSS({
-                    file: './layout/cells.less',
-                    file: './layout/codemirror.less',
-                    file: './layout/completer.less',
-                    file: './layout/extras.less',
-                    file: './layout/notebook.less',
-                    file: './layout/vim.less',
-                    file: './styles/compiled/solarizedl.css'
-                })
-                chrome.storage.local.set({ [id]: false})
+                // browser.tabs.removeCSS(
+                //     id,
+                //     {
+                //         file: './layout/cells.less',
+                //         file: './layout/codemirror.less',
+                //         file: './layout/completer.less',
+                //         file: './layout/extras.less',
+                //         file: './layout/notebook.less',
+                //         file: './layout/vim.less',
+                //         file: './style/dark.css'
+                //     }
+                // )
+                chrome.storage.local.set({id: false})
             }
         }
     }else{
