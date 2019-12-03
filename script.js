@@ -9,8 +9,8 @@ chrome.tabs.query({active: true, url:["http://*/notebooks/*", "https://hub.gke.m
         box.style.display = 'inline-block'
         txt.style.display = 'none'
 
-        chrome.storage.sync.get("is", val => {
-            btn.checked = val["is"] ? true : false
+        chrome.storage.local.get('is', val => {
+            btn.checked = val.is ? true : false
         })
         
         btn.addEventListener('click', changeColor)
@@ -18,9 +18,9 @@ chrome.tabs.query({active: true, url:["http://*/notebooks/*", "https://hub.gke.m
         function changeColor(){
             if(btn.checked){
                 browser.tabs.insertCSS({
-                    file: './styles/dark.css'
+                    file: './styles/style.css'
                 })
-                chrome.storage.local.set({id: true})
+                chrome.storage.local.set({is: true})
             }else{
                 // browser.tabs.removeCSS(
                 //     id,
@@ -34,7 +34,7 @@ chrome.tabs.query({active: true, url:["http://*/notebooks/*", "https://hub.gke.m
                 //         file: './style/dark.css'
                 //     }
                 // )
-                chrome.storage.local.set({id: false})
+                chrome.storage.local.set({is: false})
             }
         }
     }else{

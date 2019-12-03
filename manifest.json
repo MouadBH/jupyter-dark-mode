@@ -31,7 +31,7 @@
         {
           "matches": ["http://*/notebooks/*", "https://hub.gke.mybinder.org/*"],
           "css": [
-                "./defaults/custom.css"
+                "./styles/style.css"
             ]
         }
     ],
